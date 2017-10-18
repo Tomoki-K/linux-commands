@@ -5,8 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
-#define BUFFER_SIZE 1028
+#define BUFFER_SIZE 1024
 
 // 連結リストの要素
 struct node {
@@ -17,6 +18,11 @@ struct node {
 int main(int argc, char *argv[]) {
 
     FILE* pFile = fopen(argv[1], "r");
+    int errnum = errno;
+    if (pFile == NULL) {
+        fprintf(stderr, "Error opening file: %s\n", strerror( errnum ));
+        exit(1);
+    }
     struct node *head, *tmp;
 
     // 長さ10の循環リストを定義
