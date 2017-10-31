@@ -1,5 +1,5 @@
 /*
-* System Programming - mig-term report
+* System Programming - mid-term report
 * Name: Tomoki Kano
 * ID: 1G151026
 *
